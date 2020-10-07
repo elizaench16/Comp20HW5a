@@ -1,0 +1,49 @@
+<!--COMP 20 Web Programming
+    HW 5 Joe's Hotdogs
+    Eliza Encherman
+
+    Acknowledgements: 
+    https://htmldog.com/guides/javascript/
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+    
+    -->
+
+<html>
+    
+    <h1>Welcome to Joe's Hotdogs!</h1>
+    <h2>Your order</h2>
+
+    <script>
+        var numDogs, numFries, numDrinks, subtotal, total, discountPrice = 0.90, salesTax = 0.0625, dogsPrice = 3.25, friesPrice = 2.00, drinksPrice = 1.50;
+
+        numDogs = prompt("How many hot dogs do you want?", "0");
+        numFries = prompt("How many orders of French Fries do you want?", "0");
+        numDrinks = prompt("How many drinks do you want?", "0");
+
+        var dogsCost = numDogs * dogsPrice, friesCost = numFries * friesPrice, drinksCost = numDrinks * drinksPrice, 
+
+        subtotal = dogsCost + friesCost + drinksCost;
+
+        if (subtotal < 20.00) 
+            subtotal = subtotal * discountPrice;
+
+        total = subtotal + (subtotal * salesTax);
+
+        document.write("# Hotdogs: " + numDogs + " at $3.25 is $" + dogsCost.toFixed(2) + "<br/>");
+
+        document.write("# Fries: " + numFries + " at $2.00 is $" + friesCost.toFixed(2) + "<br/>");
+
+        document.write("# Drinks: " + numDrinks + " at $1.50 is $" + drinksCost.toFixed(2) + "<br/>");
+
+        if (subtotal < 20.00) 
+            document.write("You qualified for our 10% discount." + "<br/>");
+
+        document.write("Subtotal: $" + subtotal.toFixed(2) + "<br/>");
+
+        document.write("Meals Tax: $" + (subtotal * salesTax).toFixed(2) + "<br/>");
+
+        document.write("Total: $" + total.toFixed(2) + "<br/>");
+
+    </script>
+
+</html>
